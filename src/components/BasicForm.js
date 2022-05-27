@@ -31,7 +31,7 @@ const BasicForm = (props) => {
     const emailValue = e.target.value;
     setIsEmailTouched(true);
     setEmail(emailValue);
-    setIsEmailValid(emailValue.trim() !== "");
+    setIsEmailValid(emailValue.includes('@'));
   };
 
   const firstNameIsInvalid = isFirstNameTouched && !isFirstNameValid;

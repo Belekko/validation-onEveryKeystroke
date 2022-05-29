@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { /* useRef, useState, */ useReducer } from "react";
 
 const dispatchFunc = (prevState, action) => {
   if (action.type === "FIRSTNAME") {
@@ -12,6 +12,31 @@ const dispatchFunc = (prevState, action) => {
       },
     };
   }
+
+  if (action.type === "LASTNAME") {
+    console.log(action);
+    return {
+      ...prevState,
+      lastName: {
+        isLastNameTouched: true,
+        isLastNameValid: action.value.trim() !== "",
+        lastNameValue: action.value,
+      },
+    };
+  }
+
+  if (action.type === "EMAIL") {
+    console.log(action);
+    return {
+      ...prevState,
+      email: {
+        isEmailTouched: true,
+        isEmailValid: action.value.includes("@"),
+        emailValue: action.value,
+      },
+    };
+  }
+
   return prevState;
 };
 
@@ -35,73 +60,69 @@ const INITIAL_STATE = {
 
 const BasicForm = (props) => {
   const [state, disptach] = useReducer(dispatchFunc, INITIAL_STATE);
-  // const firstNameRef = useRef("");
-  // const lastNameRef = useRef("");
-  // const emailRef = useRef("");
-
-  // const [firstName, setFirstName] = useState("");
-  // const [isFirstNameValid, setIsFirstNameValid] = useState(false);
-  // const [isFirstNameTouched, setIsFirstNameTouched] = useState(false);
-
-  // const [lastName, setLastName] = useState("");
-  // const [isLastNameValid, setIsLastNameValid] = useState(false);
-  // const [isLastNameTouched, setIsLastNameTouched] = useState(false);
-
-  // const [email, setEmail] = useState("");
-  // const [isEmailValid, setIsEmailValid] = useState(false);
-  // const [isEmailTouched, setIsEmailTouched] = useState(false);
+  const { firstName, lastName, email } = state;
 
   const firstNameChangeHandler = (e) => {
     const value = e.target.value;
     disptach({ type: "FIRSTNAME", value });
   };
 
-  const lastNameChangeHandler = (e) => {};
+  const lastNameChangeHandler = (e) => {
+    const value = e.target.value;
+    disptach({ type: "LASTNAME", value });
+  };
 
-  const emailChangeHandler = (e) => {};
+  const emailChangeHandler = (e) => {
+    const value = e.target.value;
+    disptach({ type: "EMAIL", value });
+  };
 
   const firstNameIsInvalid =
-    state.firstName.isEmailTouched && !state.firstName.isEmailValid;
+    firstName.isFirstNameTouched && !firstName.isFirstNameValid;
   const firstNameClasses = firstNameIsInvalid
     ? "form-control invalid"
     : "form-control";
 
-  // const lastNameIsInvalid = isLastNameTouched && !isLastNameValid;
-  // const lastNameClasses = lastNameIsInvalid
-  //   ? "form-control invalid"
-  //   : "form-control";
+  const lastNameIsInvalid =
+    lastName.isLastNameTouched && !lastName.isLastNameValid;
+  const lastNameClasses = lastNameIsInvalid
+    ? "form-control invalid"
+    : "form-control";
 
-  // const emailIsInvalid = isEmailTouched && !isEmailValid;
-  // const emailClasses = emailIsInvalid ? "form-control invalid" : "form-control";
+  const emailIsInvalid = email.isEmailTouched && !email.isEmailValid;
+  const emailClasses = emailIsInvalid ? "form-control invalid" : "form-control";
 
-  // const formIsValid =
-  //   firstName.trim() !== "" && lastName.trim() !== "" && email.trim() !== "";
+  const formIsValid =
+    firstName.firstNameValue.trim() !== "" &&
+    lastName.lastNameValue.trim() !== "" &&
+    email.emailValue.includes('@');
+    console.log(formIsValid)
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (!formIsValid) {
-      alert("fill the inputs");
-      return;
-    }
-    console.log("hwllo eo");
-    setFirstName("");
-    setIsFirstNameTouched(false);
-    setIsFirstNameValid(false);
-
-    // if (lastNameIsInvalid) {
+    // if (!formIsValid) {
+    //   alert("fill the inputs");
     //   return;
     // }
+    // console.log("hwllo eo");
+    // setFirstName("");
+    // setIsFirstNameTouched(false);
+    // setIsFirstNameValid(false);
 
-    setLastName("");
-    setIsLastNameTouched(false);
-    setIsLastNameValid(false);
+    // // if (lastNameIsInvalid) {
+    // //   return;
+    // // }
 
-    // if (emailIsInvalid) {
-    //   return;
-    // }
-    setEmail("");
-    setIsEmailTouched(false);
-    setIsEmailValid(false);
+    // setLastName("");
+    // setIsLastNameTouched(false);
+    // setIsLastNameValid(false);
+
+    // // if (emailIsInvalid) {
+    // //   return;
+    // // }
+    // setEmail("");
+    // setIsEmailTouched(false);
+    // setIsEmailValid(false);
   };
   // const formIsValid = isEmailValid && isFirstNameValid && isLastNameValid;
   return (
@@ -115,21 +136,21 @@ const BasicForm = (props) => {
             value={state.firstName.firstNameValue}
             onChange={firstNameChangeHandler}
           />
-          {/* {firstNameIsInvalid && (
+          {firstNameIsInvalid && (
             <p className="error-text">Input must not be empty!</p>
-          )} */}
+          )}
         </div>
         <div className={lastNameClasses}>
           <label htmlFor="last-name">Last Name</label>
           <input
             type="text"
             id="last-name"
-            // value={lastName}
-            // onChange={lastNameChangeHandler}
+            value={lastName.lastNameValue}
+            onChange={lastNameChangeHandler}
           />
-          {/* {lastNameIsInvalid && (
+          {lastNameIsInvalid && (
             <p className="error-text">Input must not be empty!</p>
-          )} */}
+          )}
         </div>
       </div>
       <div className={emailClasses}>
@@ -137,15 +158,15 @@ const BasicForm = (props) => {
         <input
           type="text"
           id="email"
-          // value={email}
-          // onChange={emailChangeHandler}
+          value={email.emailValue}
+          onChange={emailChangeHandler}
         />
-        {/* {emailIsInvalid && (
-          <p className="error-text">Input must not be empty!</p>
-        )} */}
+        {emailIsInvalid && (
+          <p className="error-text">Input must include '@' or not be empty!</p>
+        )}
       </div>
       <div className="form-actions">
-        <button /* disabled={formIsValid} */>Submit</button>
+        <button disabled={!formIsValid}>Submit</button>
       </div>
     </form>
   );

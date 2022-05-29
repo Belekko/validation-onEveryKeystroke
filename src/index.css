@@ -102,8 +102,8 @@ button:active {
 }
 
 button:disabled,
-button:hover,
-button:active {
+button:active,
+button:hover {
   background-color: #a1a0a3;
   cursor: not-allowed;
   border-color: black;

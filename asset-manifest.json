@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/validation-onEveryKeystroke/static/css/main.4c4c3ad0.chunk.css",
-    "main.js": "/validation-onEveryKeystroke/static/js/main.ee081523.chunk.js",
-    "main.js.map": "/validation-onEveryKeystroke/static/js/main.ee081523.chunk.js.map",
-    "runtime-main.js": "/validation-onEveryKeystroke/static/js/runtime-main.2fd672e5.js",
-    "runtime-main.js.map": "/validation-onEveryKeystroke/static/js/runtime-main.2fd672e5.js.map",
-    "static/js/2.bbc48878.chunk.js": "/validation-onEveryKeystroke/static/js/2.bbc48878.chunk.js",
-    "static/js/2.bbc48878.chunk.js.map": "/validation-onEveryKeystroke/static/js/2.bbc48878.chunk.js.map",
-    "index.html": "/validation-onEveryKeystroke/index.html",
-    "static/css/main.4c4c3ad0.chunk.css.map": "/validation-onEveryKeystroke/static/css/main.4c4c3ad0.chunk.css.map",
-    "static/js/2.bbc48878.chunk.js.LICENSE.txt": "/validation-onEveryKeystroke/static/js/2.bbc48878.chunk.js.LICENSE.txt"
+    "main.css": "/HW-22-useInputWithReducer.git/static/css/main.82394ffc.chunk.css",
+    "main.js": "/HW-22-useInputWithReducer.git/static/js/main.555b45da.chunk.js",
+    "main.js.map": "/HW-22-useInputWithReducer.git/static/js/main.555b45da.chunk.js.map",
+    "runtime-main.js": "/HW-22-useInputWithReducer.git/static/js/runtime-main.584e8277.js",
+    "runtime-main.js.map": "/HW-22-useInputWithReducer.git/static/js/runtime-main.584e8277.js.map",
+    "static/js/2.6a0b498e.chunk.js": "/HW-22-useInputWithReducer.git/static/js/2.6a0b498e.chunk.js",
+    "static/js/2.6a0b498e.chunk.js.map": "/HW-22-useInputWithReducer.git/static/js/2.6a0b498e.chunk.js.map",
+    "index.html": "/HW-22-useInputWithReducer.git/index.html",
+    "static/css/main.82394ffc.chunk.css.map": "/HW-22-useInputWithReducer.git/static/css/main.82394ffc.chunk.css.map",
+    "static/js/2.6a0b498e.chunk.js.LICENSE.txt": "/HW-22-useInputWithReducer.git/static/js/2.6a0b498e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.2fd672e5.js",
-    "static/js/2.bbc48878.chunk.js",
-    "static/css/main.4c4c3ad0.chunk.css",
-    "static/js/main.ee081523.chunk.js"
+    "static/js/runtime-main.584e8277.js",
+    "static/js/2.6a0b498e.chunk.js",
+    "static/css/main.82394ffc.chunk.css",
+    "static/js/main.555b45da.chunk.js"
   ]
 }

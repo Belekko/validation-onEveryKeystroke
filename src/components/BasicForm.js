@@ -48,7 +48,7 @@ const BasicForm = (props) => {
   const emailClasses = emailIsInvalid ? "form-control invalid" : "form-control";
 
   const formIsValid =
-    firstName.trim() !== "" && lastName.trim() !== "" && email.trim() !== "";
+    firstName.trim() !== "" && lastName.trim() !== "" && email.includes('@');
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -56,27 +56,23 @@ const BasicForm = (props) => {
       alert("fill the inputs");
       return;
     }
-    console.log("hwllo eo");
+
     setFirstName("");
     setIsFirstNameTouched(false);
     setIsFirstNameValid(false);
 
-    // if (lastNameIsInvalid) {
-    //   return;
-    // }
+
 
     setLastName("");
     setIsLastNameTouched(false);
     setIsLastNameValid(false);
 
-    // if (emailIsInvalid) {
-    //   return;
-    // }
     setEmail("");
     setIsEmailTouched(false);
     setIsEmailValid(false);
   };
-  // const formIsValid = isEmailValid && isFirstNameValid && isLastNameValid;
+
+
   return (
     <form onSubmit={submitHandler}>
       <div className="control-group">

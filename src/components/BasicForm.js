@@ -61,8 +61,6 @@ const BasicForm = (props) => {
     setIsFirstNameTouched(false);
     setIsFirstNameValid(false);
 
-
-
     setLastName("");
     setIsLastNameTouched(false);
     setIsLastNameValid(false);
@@ -71,7 +69,6 @@ const BasicForm = (props) => {
     setIsEmailTouched(false);
     setIsEmailValid(false);
   };
-
 
   return (
     <form onSubmit={submitHandler}>

@@ -89,7 +89,7 @@ const BasicForm = (props) => {
             onChange={firstNameChangeHandler}
           />
           {firstNameIsInvalid && (
-            <p className="error-text">Input must not be empty!</p>
+            <p className="error-text">First Name must not be empty!</p>
           )}
         </div>
         <div className={lastNameClasses}>
@@ -101,7 +101,7 @@ const BasicForm = (props) => {
             onChange={lastNameChangeHandler}
           />
           {lastNameIsInvalid && (
-            <p className="error-text">Input must not be empty!</p>
+            <p className="error-text">Last Name must not be empty!</p>
           )}
         </div>
       </div>
@@ -114,11 +114,11 @@ const BasicForm = (props) => {
           onChange={emailChangeHandler}
         />
         {emailIsInvalid && (
-          <p className="error-text">Input must not be empty!</p>
+          <p className="error-text">E-mail must include '@' or not be empty!</p>
         )}
       </div>
       <div className="form-actions">
-        <button disabled={formIsValid}>Submit</button>
+        <button disabled={!formIsValid}>Submit</button>
       </div>
     </form>
   );
